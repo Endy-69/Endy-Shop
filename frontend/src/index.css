@@ -1,0 +1,285 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Responsive Typography */
+@layer base {
+  html {
+    font-size: 16px;
+  }
+
+  @screen sm {
+    html {
+      font-size: 16px;
+    }
+  }
+
+  @screen lg {
+    html {
+      font-size: 16px;
+    }
+  }
+
+  /* Smooth Scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Better Touch Experience */
+  @media (hover: none) {
+    * {
+      cursor: default !important;
+    }
+  }
+
+  /* Prevent Text Size Adjustment */
+  body {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* Better Mobile Tap Targets */
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Improved Focus Styles */
+  :focus {
+    outline: 2px solid theme('colors.primary.500');
+    outline-offset: 2px;
+  }
+
+  /* Hide Focus Rings for Mouse Users */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+}
+
+/* Custom Scrollbar */
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Mobile-First Animations */
+@layer utilities {
+  .animate-slide-in {
+    animation: slideIn 0.3s ease-out;
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideOut {
+    from {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+  }
+}
+
+@layer components {
+  .search-bar {
+    @apply w-0 group-hover:w-[300px] transition-all duration-300 rounded-full group-hover:border group-hover:border-gray-500 px-3 py-1 focus:outline-none dark:border-gray-800 dark:bg-gray-900 group-hover:dark:bg-gray-800;
+  }
+}
+
+@layer utilities {
+  .hero-bg-color {
+    @apply bg-gradient-to-r from-gray-300/80 to-gray-100 dark:from-gray-900 dark:to-gray-800 dark:text-white;
+  }
+
+  .form-input {
+    @apply w-full rounded-full border border-gray-300 dark:border-gray-500 dark:bg-gray-800 px-2 py-1 mb-4;
+  }
+}
+
+/* Swiper styles */
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: white !important;
+  background: rgba(255, 255, 255, 0.2);
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50%;
+  backdrop-filter: blur(4px);
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 20px !important;
+}
+
+.swiper-pagination-bullet {
+  background: white !important;
+  opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  background: white !important;
+}
+
+/* Dark mode styles */
+.dark .swiper-button-next,
+.dark .swiper-button-prev {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -100%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -120%);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.3s ease-out forwards;
+}
+
+/* Add these responsive utility classes */
+@layer utilities {
+  .responsive-container {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .responsive-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6;
+  }
+
+  .responsive-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  .responsive-section {
+    @apply py-8 sm:py-12 lg:py-16;
+  }
+
+  /* Mobile-first text sizes */
+  .responsive-heading {
+    @apply text-2xl sm:text-3xl lg:text-4xl font-bold;
+  }
+
+  .responsive-subheading {
+    @apply text-lg sm:text-xl lg:text-2xl font-semibold;
+  }
+
+  /* Mobile-friendly touch targets */
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px];
+  }
+
+  /* Responsive modal */
+  .responsive-modal {
+    @apply w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl mx-4;
+  }
+
+  /* Responsive form inputs */
+  .responsive-input {
+    @apply w-full px-3 py-2 sm:px-4 sm:py-3 rounded-lg;
+  }
+
+  /* Responsive buttons */
+  .responsive-button {
+    @apply px-4 py-2 sm:px-6 sm:py-3 rounded-lg;
+  }
+}
+
+/* Responsive navigation */
+@layer components {
+  .nav-link {
+    @apply px-2 py-1 sm:px-4 sm:py-2 text-sm sm:text-base;
+  }
+
+  .mobile-menu {
+    @apply fixed inset-0 bg-white dark:bg-gray-900 z-50 lg:hidden;
+  }
+}
+
+/* Responsive animations */
+@layer utilities {
+  .animate-slide-in {
+    animation: slideIn 0.3s ease-out;
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+}
+
+/* Better mobile scrolling */
+@media (max-width: 640px) {
+  html, body {
+    overflow-x: hidden;
+  }
+}
+
+/* Improved touch interactions */
+@media (hover: none) {
+  .hover-only {
+    display: none;
+  }
+}
+
+/* Responsive tables */
+.responsive-table {
+  @apply w-full overflow-x-auto;
+}
+
+/* Responsive images */
+.responsive-image {
+  @apply w-full h-auto object-cover;
+}
+
+/* Responsive grid layouts */
+.auto-grid {
+  @apply grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+/* Add these to your existing styles */
+* {
+  transition: background-color 0.7s ease,
+              color 0.7s ease,
+              border-color 0.7s ease,
+              box-shadow 0.7s ease;
+}
+
+.dark {
+  transition: all 0.7s ease;
+}
